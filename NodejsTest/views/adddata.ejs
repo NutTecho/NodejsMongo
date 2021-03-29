@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>Adddata</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
+</head>
+<body>
+    <%- include layout%>
+    <div class="container">
+    <h2 align="center">Add data to DB</h2>
+        <% if(locals.errors){ %>
+        <ul class="alert alert-danger">
+            <% Object.values(errors).forEach(function(error) { %>
+                <li><%= error.msg %></li>
+            <% })  %>
+        </ul>
+        <% } %>
+        <form class="" action="/adddata/addnew" method="post">
+            <div class="form-group">
+                <label for="">Add topic</label>
+                <input type="text" name="name" value=""
+                class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Add Description</label>
+                <textarea type="text" name="description" value=""
+                class="form-control" row="8" cols="80"></textarea>  
+            </div>
+            <div class="form-group">
+                <label for="">Address</label>
+                <textarea type="text" name="address" value=""
+                class="form-control" row="8" cols="80"></textarea>  
+            </div>
+            <input type="submit" name="subbtn" value="Submit" class="btn btn-primary"> 
+            
+        </form>
+        <form class="" action="/adddata/getold" method="get">
+            <input name="getold" value="getold" type="submit" class="btn btn-primary"> 
+           
+        </form>
+         
+    </div>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+</body>
+</html>
