@@ -35,9 +35,17 @@
         </form>
         <form class="" action="/adddata/getold" method="get">
             <input name="getold" value="getold" type="submit" class="btn btn-primary"> 
-           
         </form>
-         
+        <div class="py-2">
+            <p>
+                <% Object.values(datas).forEach(function(data) { %>
+                    <h3><b> Topic : </b><%= data.topic %></h3>
+                    <p>Description : <%= data.description %></p>
+                    <p>Address : <%= data.address %></p>
+                    <hr>
+                <% })  %>
+            </p>
+        </div>
     </div>
     <script>
         ClassicEditor
