@@ -1,27 +1,33 @@
 var express = require('express');
 const bodyParser = require("body-parser");
-const cors = require("cors");
-const Sequelize = require('sequelize')
+// const cors = require("cors");
+// const Sequelize = require('sequelize')
 const getdata = require('../model/getdata')
-const mysqlcon = require('../model/mysqlcon')
+
+
+const mysqlcon = require('../model/connectmysql')
+const sequelize = mysqlcon.sequelize;
+const mysqlDB = mysqlcon.blog;
+
 var router = express.Router();
 const db = require('monk')('localhost:27017/test')
-const {check,validationResult} = require('express-validator')
+const {check,validationResult} = require('express-validator');
+
 
 db.then(()=> console.log('Connection correctly to server'))
 
-// const sequelize = new Sequelize(mysqlcon.DB,mysqlcon.USER,mysqlcon.PASSWORD{
-//   host : mysqlcon.HOST,
-//   dialect : mysqlcon.dialect,
-//   operatorsAliases: false,
+router.get('/', async(req, res, next) => {
+  // getdata.GetOldData(function(error,datas){
+  //   if(error) throw error
+  //     res.render("adddata",{datas:datas})
+  //   });
+  // res.render("adddata");
+   const blogs = await mysqlDB.findAll();
+  //  res.json(blogs);
+  res.render("adddata",{datas:blogs});
 
-//   pool: {
-//     max: mysqlcon.pool.max,
-//     min: mysqlcon.pool.min,
-//     acquire: mysqlcon.pool.acquire,
-//     idle: mysqlcon.pool.idle
-//   }
-// })
+});
+
 
 // const app = express();
 // app.use(bodyParser.json())
@@ -55,6 +61,7 @@ router.get('/getold',function(req,res,next){
     
   });
 });
+
 router.get('/getold/:name',function(req,res,next){
   // var col = db.get('demo');
   var col = db.get('getdatas');

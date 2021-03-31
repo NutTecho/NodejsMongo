@@ -38,10 +38,19 @@
         </form>
         <div class="py-2">
             <p>
-                <% Object.values(datas).forEach(function(data) { %>
+                <!-- <% Object.values(datas).forEach(function(data) { %>
                     <h3><b> Topic : </b><%= data.topic %></h3>
                     <p>Description : <%= data.description %></p>
                     <p>Address : <%= data.address %></p>
+                    <hr>
+                <% })  %> -->
+
+                <% Object.values(datas).forEach(function(data) { %>
+                    <h3><b>id : </b><%= data.getid %></h3>
+                    <p>first_name : <%= data.FirstName %></p>
+                    <p>last_name : <%= data.LastName %></p>
+                    <p>age : <%= data.Age %></p>
+                    <p>toy : <%= data.Toy %></p>
                     <hr>
                 <% })  %>
             </p>
