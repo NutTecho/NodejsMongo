@@ -19,6 +19,7 @@
     "monk": "^7.3.3",
     "morgan": "~1.9.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "tedious": "^11.0.6"
   }
 }
