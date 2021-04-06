@@ -16,20 +16,31 @@
         <% } %>
         <form class="" action="/adddata/addnew" method="post">
             <div class="form-group">
-                <label for="">Add topic</label>
-                <input type="text" name="name" value=""
-                class="form-control">
+                <label for="fname">FirstName</label>
+                <input type="text" name="firstname" value=""
+                class="form-control" id="fname">
             </div>
             <div class="form-group">
-                <label for="">Add Description</label>
-                <textarea type="text" name="description" value=""
-                class="form-control" row="8" cols="80"></textarea>  
+                <label for="lname">LastName</label>
+                <input type="text" name="lastname" value=""
+                class="form-control" id="lname">  
             </div>
             <div class="form-group">
-                <label for="">Address</label>
+                <label for="age">Age</label>
+                <input type="number" name="age" value=""
+                class="form-control" id="age">  
+            </div>
+            <div class="form-group">
+                <label for="toy">Toy</label>
+                <input type="text" name="toy" value=""
+                class="form-control" id="toy">  
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="">Age</label>
                 <textarea type="text" name="address" value=""
                 class="form-control" row="8" cols="80"></textarea>  
-            </div>
+            </div> -->
             <input type="submit" name="subbtn" value="Submit" class="btn btn-primary"> 
             
         </form>
@@ -38,13 +49,7 @@
         </form>
         <div class="py-2">
             <p>
-                <!-- <% Object.values(datas).forEach(function(data) { %>
-                    <h3><b> Topic : </b><%= data.topic %></h3>
-                    <p>Description : <%= data.description %></p>
-                    <p>Address : <%= data.address %></p>
-                    <hr>
-                <% })  %> -->
-
+               
                 <% Object.values(datas).forEach(function(data) { %>
                     <h3><b>id : </b><%= data.getid %></h3>
                     <p>first_name : <%= data.FirstName %></p>
@@ -56,12 +61,12 @@
             </p>
         </div>
     </div>
-    <script>
+    <!-- <script>
         ClassicEditor
             .create( document.querySelector( '#editor' ) )
             .catch( error => {
                 console.error( error );
             } );
-    </script>
+    </script> -->
 </body>
 </html>
