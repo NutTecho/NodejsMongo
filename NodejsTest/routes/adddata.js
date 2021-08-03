@@ -78,7 +78,8 @@ router.get('/getold',async(req,res,next) =>{
     await mb2.findAll()
     .then((x) => {
       //  console.log(x);
-       res.render("adddata",{datas:x});
+       //res.render("adddata",{datas:x});
+       res.json(x)
        // res.sendStatus(200);
     })
     .catch(err => console.log(err));
